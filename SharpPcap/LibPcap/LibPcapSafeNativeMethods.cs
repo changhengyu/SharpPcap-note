@@ -163,6 +163,7 @@ namespace SharpPcap.LibPcap
 
         /// <summary>
         /// To avoid callback, this returns one packet at a time
+        /// 为了避免回调，每次返回一个包
         /// </summary>
         internal static int pcap_next_ex(IntPtr /* pcap_t* */ adaptHandle, ref IntPtr /* **pkt_header */ header, ref IntPtr data)
         {

@@ -171,6 +171,7 @@ namespace SharpPcap
 
         /// <summary>
         /// Synchronously capture packets on this device. Method blocks forever.
+        /// 在此设备上同步捕获数据包。方法永远阻塞。
         /// </summary>
         void Capture();
 
@@ -178,13 +179,16 @@ namespace SharpPcap
 
         /// <summary>
         /// Retrieves the next packet from a device
+        /// 从设备检索下一个数据包
         /// </summary>
         /// <returns></returns>
         RawCapture GetNextPacket();
 
         /// <summary>
+        /// 获取指向下一个PCAP标头和数据包数据的指针。
         /// Gets pointers to the next PCAP header and packet data.
         /// Data is only valid until next call to GetNextPacketNative.
+        /// 数据只在下次调用获取下一个本地数据包之前有效。
         ///
         /// Advanced use only. Intended to allow unmanaged code to avoid the overhead of
         /// marshalling PcapHeader and packet contents to allocated memory.
@@ -201,7 +205,7 @@ namespace SharpPcap
         /// Sends a raw packet throgh this device
         /// </summary>
         /// <param name="p">The packet to send</param>
-        /// <param name="size">The number of bytes to send</param>
+        /// <param name="size">The number of bytes to send 要发送的字节数</param>
         void SendPacket(PacketDotNet.Packet p, int size);
 
         /// <summary>

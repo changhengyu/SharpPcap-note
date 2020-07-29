@@ -6,7 +6,7 @@
 [![](https://codecov.io/gh/chmorgan/sharppcap/branch/master/graph/badge.svg)](https://codecov.io/gh/chmorgan/sharppcap)
 [![](https://badges.gitter.im/SharpPcap/community.svg)](https://gitter.im/SharpPcap/community)
 
-# sharppcap
+# SHarpPcap
 Fully managed, cross platform (Windows, Mac, Linux) .NET library for capturing packets from live and file based devices
 
 The official SharpPcap repository.
