@@ -1,0 +1,9 @@
+codecov:
+  notify:
+    # 4 for appveyor
+    # 3 for azure pipelines
+    # 1 for circleci
+    # 2 for travis
+    # Total = 10
+    # Tolerate one of the services being down (worst case appveyor)
+    after_n_builds: 6

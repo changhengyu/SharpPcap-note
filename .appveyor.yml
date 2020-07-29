@@ -1,0 +1,53 @@
+
+# Disable automatic AppVeyor build logic
+build: off
+skip_branch_with_pr: true
+
+image:
+  - Visual Studio 2017
+  - Visual Studio 2019
+  - Ubuntu1804
+  - macos
+
+for:
+-
+  matrix:
+    only:
+      - image: Visual Studio 2017
+  install:
+    - choco install -y dotnetcore-sdk --version=3.1.301
+    - choco install -y winpcap
+  build_script:
+    - dotnet build -c Release
+  test_script:
+    - bash scripts/test.sh --filter TestCategory!=Performance
+
+-
+  matrix:
+    only:
+      - image: Visual Studio 2019
+  install:
+    # an OEM installer is required for newer versions of npcap
+    - choco install -y npcap --version 0.86
+  build_script:
+    - dotnet build -c Release
+  test_script:
+    - bash scripts/test.sh --filter TestCategory!=RemotePcap
+
+-
+  matrix:
+    only:
+      - image: Ubuntu1804
+  install:
+    - sudo -E bash scripts/install-libpcap.sh
+  test_script:
+    - sudo -E bash scripts/test.sh --filter "TestCategory!=Performance&TestCategory!=SendPacket"
+
+-
+  matrix:
+    only:
+      - image: macos
+  install:
+    - sudo -E bash scripts/install-libpcap.sh
+  test_script:
+    - sudo -E bash scripts/test.sh

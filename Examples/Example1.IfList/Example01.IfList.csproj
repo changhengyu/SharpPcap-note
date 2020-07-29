@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+    <UserSecretsId>e8e43217-843d-4899-abc6-3209fdd5edca</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SharpPcap\SharpPcap.csproj" />
+  </ItemGroup>
+</Project>

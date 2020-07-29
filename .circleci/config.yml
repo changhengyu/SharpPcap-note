@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.4.0
+
+jobs:
+  build:
+    executor:
+      name: win/default
+    steps:
+      - checkout
+      - run: dotnet build -c Release
+
+  test-ubuntu:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - run: sudo -E bash scripts/install-dotnet.sh
+      - run: sudo -E bash scripts/install-libpcap.sh
+      - run: sudo -E bash scripts/test.sh --filter TestCategory!=SendPacket
+      - store_test_results:
+          path: Test/TestResults
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - test-ubuntu

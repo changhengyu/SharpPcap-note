@@ -1,0 +1,10 @@
+language: csharp
+dotnet: 3.1.301
+
+matrix:
+    include:
+        - os: linux
+        - os: osx
+
+install: sudo -E bash scripts/install-libpcap.sh
+script: sudo -E bash scripts/test-travis.sh

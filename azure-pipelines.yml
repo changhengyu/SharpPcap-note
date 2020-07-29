@@ -1,0 +1,37 @@
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+trigger:
+- master
+
+pr:
+  autoCancel: true
+  branches:
+    include:
+    - '*' # quote since "*" is a YAML reserved character
+
+jobs:
+- job: linux
+  pool:
+    vmImage: 'ubuntu-18.04'
+  steps:
+  - script: sudo -E bash scripts/install-libpcap.sh
+  - script: sudo -E bash scripts/test.sh --filter "TestCategory!=Performance&TestCategory!=SendPacket"
+
+- job: macos
+  pool:
+    vmImage: 'macOS-10.15'
+  steps:
+  - script: sudo -E bash scripts/install-libpcap.sh
+  - script: sudo sysctl -w net.inet.udp.maxdgram=65535
+  - script: sudo -E bash scripts/test.sh --filter TestCategory!=Performance
+
+- job: windows
+  pool:
+    vmImage: 'VS2017-Win2016'
+  steps:
+  - script: choco install -y winpcap
+  - script: dotnet restore -s https://api.nuget.org/v3/index.json
+  - script: bash scripts/test.sh --filter
