@@ -26,13 +26,19 @@ namespace SharpPcap
 {
     /// <summary>
     /// Constants and static helper methods
+    /// 常量和静态辅助方法
     /// </summary>
     public class Pcap
     {
-        /// <summary>Represents the infinite number for packet captures </summary>
+        /// <summary>
+        /// Represents the infinite number for packet captures
+        /// 表示数据包捕获的无限个数
+        /// </summary>
         internal const int InfinitePacketCount = -1;
 
-        /* interface is loopback */
+        /* interface is loopback 
+         * 接口是环回
+         */
         internal const uint PCAP_IF_LOOPBACK = 0x00000001;
         internal const int MAX_PACKET_SIZE = 65536;
         internal const int PCAP_ERRBUF_SIZE = 256;
@@ -51,6 +57,7 @@ namespace SharpPcap
 
         /// <summary>
         /// Returns the pcap version string retrieved via a call to pcap_lib_version()
+        /// 通过调用pcap lib version（）返回检索的pcap版本字符串
         /// </summary>
         public static string Version
         {
@@ -84,6 +91,7 @@ namespace SharpPcap
         static Pcap()
         {
             // happens to have the same value on Windows and Linux
+            // 碰巧在Windows和Linux上有相同的值
             AF_INET = 2;
 
             // AF_PACKET = 17 on Linux, AF_NETBIOS = 17 on Windows

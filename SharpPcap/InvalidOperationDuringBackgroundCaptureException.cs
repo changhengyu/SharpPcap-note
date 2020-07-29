@@ -21,8 +21,7 @@ along with SharpPcap.  If not, see <http://www.gnu.org/licenses/>.
 namespace SharpPcap
 {
     /// <summary>
-    /// Thrown when an operation can't be performed because
-    /// a background capture has been started via PcapDevice.StartCapture()
+    /// Thrown when an operation can't be performed because a background capture has been started via PcapDevice.StartCapture()
     /// </summary>
     public class InvalidOperationDuringBackgroundCaptureException : PcapException
     {

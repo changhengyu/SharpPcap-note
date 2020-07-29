@@ -22,6 +22,7 @@ along with SharpPcap.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace SharpPcap
 {
+    /// 包到达事件的委托
     /// <summary>A delegate for Packet Arrival events</summary>
     public delegate void PacketArrivalEventHandler(object sender, CaptureEventArgs e);
 }

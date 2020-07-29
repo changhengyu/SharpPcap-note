@@ -22,6 +22,7 @@ along with SharpPcap.  If not, see <http://www.gnu.org/licenses/>.
 namespace SharpPcap
 {
     /// <summary>
+    /// 适配器统计信息、已接收、丢弃的数据包计数等
     /// Adapter statistics, received, dropped packet counts etc
     /// </summary>
     public interface ICaptureStatistics
@@ -37,6 +38,7 @@ namespace SharpPcap
         uint DroppedPackets { get; set; }
 
         /// <value>
+        /// 接口丢弃的数据包数
         /// Number of interface dropped packets
         /// </value>
         uint InterfaceDroppedPackets { get; set; }
