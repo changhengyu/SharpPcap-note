@@ -193,7 +193,7 @@ namespace SharpPcap.Npcap
         }
 
         /// <summary>
-        /// 通知数据包到达时代理新捕获的数据包
+        /// 通知OnPacketArrival委托有关新捕获的数据包的信息
         /// Notify the OnPacketArrival delegates about a newly captured packet
         /// </summary>
         /// <param name="p">

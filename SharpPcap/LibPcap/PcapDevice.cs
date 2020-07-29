@@ -443,6 +443,7 @@ namespace SharpPcap.LibPcap
 
         /// <summary>
         /// Convert an unmanaged packet into a managed PacketDotNet.RawPacket
+        /// 将非托管数据包转换为托管PacketDotNet.RawPacket
         /// </summary>
         /// <param name="header">
         /// A <see cref="IntPtr"/>

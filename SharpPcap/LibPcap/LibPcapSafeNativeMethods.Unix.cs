@@ -170,6 +170,7 @@ namespace SharpPcap.LibPcap
 
         /// <summary>
         /// Read packets until cnt packets are processed or an error occurs.
+        /// 读取数据包，直到处理cnt数据包或发生错误。
         /// </summary>
         [DllImport(PCAP_DLL, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         internal extern static int pcap_dispatch(IntPtr /* pcap_t* */ adaptHandle, int count, LibPcapSafeNativeMethods.pcap_handler callback, IntPtr ptr);

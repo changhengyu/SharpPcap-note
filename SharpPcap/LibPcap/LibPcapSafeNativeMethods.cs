@@ -296,6 +296,8 @@ namespace SharpPcap.LibPcap
         /// <summary>
         /// The delegate declaration for PcapHandler requires an UnmanagedFunctionPointer attribute.
         /// Without this it fires for one time and then throws null pointer exception
+        /// PcapHandler的委托声明需要UnmanagedFunctionPointer属性。
+        //没有这个，它会触发一次，然后抛出空指针异常
         /// </summary>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         internal delegate void pcap_handler(IntPtr param, IntPtr /* pcap_pkthdr* */ header, IntPtr pkt_data);

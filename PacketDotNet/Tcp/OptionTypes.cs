@@ -32,26 +32,32 @@ namespace PacketDotNet.Tcp
     /// </remarks>
     public enum OptionTypes : byte
     {
+        ///选项列表结束
         /// <summary>End Of List</summary>
         /// <remarks>See RFC 793</remarks>
         EndOfOptionList = 0,
 
+        /// 无操作（用于补位填充）
         /// <summary>No Operation</summary>
         /// <remarks>See RFC 793</remarks>
         NoOperation = 1,
 
+        /// 最大segment长度
         /// <summary>Maximum Segment Size</summary>
         /// <remarks>See RFC 793</remarks>
         MaximumSegmentSize = 2,
 
+        /// 窗口扩大系数
         /// <summary>Window Scale Factor</summary>
         /// <remarks>See RFC 1323</remarks>
         WindowScaleFactor = 3,
 
+        /// 表明支持SACK
         /// <summary>SACK (Selective Ack) Permitted</summary>
         /// <remarks>See RFC 2018</remarks>
         SACKPermitted = 4,
 
+        /// 收到乱序数据
         /// <summary>SACK (Selective Ack)</summary>
         /// <remarks>See RFC 2018 and RFC 2883</remarks>
         SACK = 5,
@@ -96,6 +102,7 @@ namespace PacketDotNet.Tcp
         /// <remarks>See RFC 1146</remarks>
         AlternateChecksumData = 15,
 
+        /// md5认证
         /// <summary>MD5 Signature</summary>
         /// <remarks>See RFC 2385</remarks>
         MD5Signature = 19,
@@ -104,6 +111,7 @@ namespace PacketDotNet.Tcp
         /// <remarks>See RFC 4782</remarks>
         QuickStartResponse = 27,
 
+        /// 超过一定限制时间后拆除连接
         /// <summary>User Timeout</summary>
         /// <remarks>See RFC 5482</remarks>
         UserTimeout = 28
